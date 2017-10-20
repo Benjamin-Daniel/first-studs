@@ -70,7 +70,7 @@ function lookfornumstudent(studName, database) {
 
 
 router.get('/', function (req, res) {
-    res.status(200).send("yay, studs")
+    res.status(200).send("yay, studs how are you?")
 })
 
 router.get('/api', function (req, res) {
