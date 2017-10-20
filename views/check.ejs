@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Hasd</title>
+</head>
+
+<body>
+    <nav class="blue">
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo black-text">HASD</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>            
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a class="black-text" href="/add">Add food</a></li>
+                <li><a class="black-text" href="#">Check</a></li>
+                <li><a class="black-text" href="/delete">delete</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a class="black-text" href="/add">Add food</a></li>
+                <li><div class="divider"></div></li>                
+                <li><a class="black-text" href="/check">Check</a></li>
+                <li><div class="divider"></div></li>                
+                <li><a class="black-text" href="/delete">delete</a></li>
+                <li><div class="divider"></div></li>                
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+
+        <p>Check the price of food stuff in our database</p>
+
+        <p>The number of entry in the website is
+            <bold>
+                <%= entries.length %>
+        </p>
+        </bold>
+
+        <% if (entries.length) { %>
+            <% entries.map(function(entry) { %>
+                <div class="row">
+                    <div class="col s12 m12">
+                        <div class="card">
+                            <div class="card-content blue-text text-darken-2">
+                                <strong><span><%= entry.name %> <small> (<%= entry.category %>)</small></span></strong>
+                                <span class="black-text text-muted hide-on-small-only">
+                                    <%= entry.published %>
+                                </span>
+                            </div>
+                            <div class="card-action">
+                                <%= entry.quantity %>
+                                <%= entry.units %> of
+                                    <%= entry.name %> costs
+                                        <%= entry.price %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% }); %>
+
+                    <% } else { %>
+                        <h1><a href="/add" class="btn btn-primary pull-right">Add a new chow</a>
+                        </h1>
+                        <% } %>
+
+
+    </div>
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/materialize.js"></script>
+    <script>
+        $(".button-collapse").sideNav();
+    </script>
+</body>
+
+</html>

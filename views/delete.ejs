@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Hasd</title>
+</head>
+
+<body>
+
+    <nav class="blue">
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo black-text">HASD</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a class="black-text" href="/add">Add food</a></li>
+                <li><a class="black-text" href="/check">Check</a></li>
+                <li><a class="black-text" href="#">delete</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a class="black-text" href="/add">Add food</a></li>
+                <li>
+                    <div class="divider"></div>
+                </li>
+                <li><a class="black-text" href="/check">Check</a></li>
+                <li>
+                    <div class="divider"></div>
+                </li>
+                <li><a class="black-text" href="/delete">delete</a></li>
+                <li>
+                    <div class="divider"></div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+
+        <p>Delete food stuff in our database</p>
+
+
+        <div class="row" id="signin">
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="form">
+                    <div class="form-group">
+                        <input type="text" name="name" class="form-control" placeholder="name of food">
+                    </div>
+                </div>
+                <div class="form-group text-center">
+                    <a href="#" class="btn waves-effect waves-light" id="submitlink">Delete</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="waves-effect waves-light btn modal-trigger hide" href="#modal1">Modal</a>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>404 not found</h4>
+            <p>The food <span id="food"></span> wasn't found in the database</p>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">ok</a>
+        </div>
+    </div>
+    <a class="waves-effect waves-light btn modal-trigger hide" href="#modal2">Modal</a>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <h4>Are you sure?</h4>
+            <p>Are you sure you want to delete this? <br> IF true type the <span id="check"></span> into the form below</p>
+            <form id="deleteForm" action="/delete" method="POST">
+                <div class="input-field col s6">
+                    <input name="food" id="deleteInput" type="text" class="validate" autofocus>
+                    <label for="delete">The food</label>
+                </div>
+                <div class="form-group text-center">
+                    <a href="#" class="btn waves-effect waves-light" id="deleteButton">Delete</a>
+                </div>
+            </form>
+            <h3 id="errorMessage" class="red-text"></h3>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">No</a>
+        </div>
+    </div>
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/materialize.js"></script>
+    <script>
+        $(".button-collapse").sideNav();
+        /*$(document).ready(function () {
+            // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+            $('.modal').modal();
+        });*/
+        $('.modal').modal({
+            opacity: .75,
+            // when the modal is completed the food's innner html becomes empty
+            complete: function () {
+                //console.log('closed')
+                if (!food.innerText.length == 0) {
+                    //alert('chai')
+                    food.innerText = "";
+                }
+                if (!checked.innerText.length == 0) {
+                    //alert('chai')
+                    checked.innerText = "";
+                }
+            } // Callback for Modal close
+        });
+    </script>
+    <script src="/js/ani.js"></script>
+</body>
+
+</html>

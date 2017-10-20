@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hasd</title>
+</head>
+
+<body>
+    <nav class="blue">
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo black-text">HASD</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a class="black-text" href="#">Add food</a></li>
+                <li><a class="black-text" href="/check">Check</a></li>
+                <li><a class="black-text" href="/delete">delete</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a class="black-text" href="/add">Add food</a></li>
+                <li>
+                    <div class="divider"></div>
+                </li>
+                <li><a class="black-text" href="/check">Check</a></li>
+                <li>
+                    <div class="divider"></div>
+                </li>
+                <li><a class="black-text" href="/delete">delete</a></li>
+                <li>
+                    <div class="divider"></div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+
+        <p class="caption">Add foods into our database</p>
+
+
+        <div class="row" id="signin">
+            <div class="col s6 offset-s3 valign-wrapper">
+                <form action="/add" method="POST">
+                    <div class="form">
+                        <div class="input-field">
+                            <input type="text" name="name" class="validate autocomplete">
+                            <label for="name">name</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" name="category" class="validate">
+                            <label for="category">category</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" name="price" class="validate">
+                            <label for="price">price</label>
+                        </div>
+                        <div class="input-field text-flow" id="me">
+                            <input type="text" name="quantity" class="validate" placeholder="Units">
+                            <select name="units">
+                                <option value="KG">Kilogram <small>KG</small></option>
+                                <option value="Pounds">Pounds</option>
+                                <option value="Ounch">Ounch</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group text-center">
+                        <button type="submit" class="btn waves-effect">Add</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="/js/jquery-3.2.1.min.js"></script>
+    <script src="/js/materialize.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('select').material_select();
+        });
+        $(".button-collapse").sideNav();
+        /*$('input.autocomplete').autocomplete({
+            data: {
+                "Rice": null,
+                "Beans": null,
+                "Danilo": null
+            },
+            limit: 20,
+            minLength: 1,
+        });
+        */
+    </script>
+</body>
+
+</html>
