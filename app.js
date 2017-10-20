@@ -10,7 +10,7 @@ var express = require('express'),
 
 var app = express(),
     router = require('./app/routes'),
-    Secret = process.env.SECRET || "qwerty",
+    Secret = process.env.SECRET,
     DB_URI = process.env.DB_URI;
 
 //connect to the mongodb server
